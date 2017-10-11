@@ -9,6 +9,8 @@ package ui;
  */
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,13 +18,14 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import calculator.Calculator;
 
 /**
  *This class holds the logic and components to create the UI for a calculator.
  */
 public class CalculatorUI extends Application
 {
-    private static final int BUTTON_AMOUNT = 15;
+    private static final int MAX_BUTTONS = 15;
     private final int COL_WIDTH = 30;
 
     /**
@@ -49,7 +52,7 @@ public class CalculatorUI extends Application
                 new ColumnConstraints(COL_WIDTH));
 
         //creates the arrays of info for macking the buttons
-        String[] buttonLabels = {" 7 ", " 8 ", " 9 ", " + ", " 4 ", " 5 ", " 6 ", " - ", " 1 ", " 2 ", " 3 ", " * ", " 0 ", "Enter", " / "};
+        String[] buttonLabels = {"7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "*", "0", "Enter", "/"};
         Button[] buttons = new Button[buttonLabels.length];
 
         //creates each button
@@ -66,7 +69,7 @@ public class CalculatorUI extends Application
         {
             for (int column = 0; column <= 3; column++)
             {
-                if (counter == BUTTON_AMOUNT)
+                if (counter == MAX_BUTTONS)
                 {
                     break;
                 }
@@ -74,15 +77,18 @@ public class CalculatorUI extends Application
                 {
                     gridPane.add(buttons[counter], column, row, 4, 1);
                     buttons[counter].getStyleClass().add("enterButton");
+                    listener(buttons[counter]);
                     column++;
                 }
                 else
                 {
                     gridPane.add(buttons[counter], column, row);
+                    listener(buttons[counter]);
                 }
                 counter++;
             }
         }
+
 
         //Creates the label/hbox and adds to gridPane
         HBox hbox = new HBox();
@@ -91,6 +97,7 @@ public class CalculatorUI extends Application
         hbox.getChildren().add(label);
         hbox.getStyleClass().add("labelOutput");
 
+        //adds the hbox to the gridPane
         gridPane.add(hbox, 0, 4, 4, 1);
 
         //adds the css sheet link
@@ -98,5 +105,19 @@ public class CalculatorUI extends Application
 
         //returns the scene with a set height and width
         return new Scene(gridPane, 192, 195);
+    }
+
+    //helper method to create event listeners for buttons in the above class
+    private void listener(Button button)
+    {
+        button.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent event)
+            {
+                String value = button.getText();
+                Calculator.Calculate(value);
+            }
+        });
     }
 }
