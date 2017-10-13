@@ -16,6 +16,8 @@ GridPane{
     -fx-border-color: #707070;
     -fx-border-style: solid;
     -fx-pref-width: 90;
+    -fx-pref-height: 25px;
+    -fx-text-alignment: right;
 }
 
 
@@ -32,7 +34,7 @@ Button:hover{
 }
 
 Button:focused{
-    -fx-background-color: #146dff;
+    -fx-background-color: rgb(110, 146, 0);
 }
 
 .enterButton{

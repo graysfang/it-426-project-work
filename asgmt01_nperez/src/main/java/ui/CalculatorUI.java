@@ -11,12 +11,14 @@ package ui;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+
 import javafx.stage.Stage;
 import calculator.Calculator;
 
@@ -27,6 +29,8 @@ public class CalculatorUI extends Application
 {
     private static final int MAX_BUTTONS = 15;
     private final int COL_WIDTH = 30;
+    private static Label inputLabel = new Label("");
+    //private static Label equationLabel = new Label("");
 
     /**
      * Creates the applet from the assemble method
@@ -54,6 +58,7 @@ public class CalculatorUI extends Application
         //creates the arrays of info for macking the buttons
         String[] buttonLabels = {"7", "8", "9", "+", "4", "5", "6", "-", "1", "2", "3", "*", "0", "Enter", "/"};
         Button[] buttons = new Button[buttonLabels.length];
+
 
         //creates each button
         for (int i = 0; i < buttonLabels.length; i++)
@@ -89,22 +94,32 @@ public class CalculatorUI extends Application
             }
         }
 
+        //Creates the inputLabel/labelHBox and adds to gridPane
+        HBox equationBHox = new HBox();
+        Button clearButton = new Button("C");
+        listener(clearButton);
 
-        //Creates the label/hbox and adds to gridPane
-        HBox hbox = new HBox();
-        Label label = new Label("");
+//        HBox runningTotalBHox = new HBox();
+//        runningTotalBHox.getChildren().add(equationLabel);
+//        runningTotalBHox.setAlignment(Pos.CENTER_LEFT);
 
-        hbox.getChildren().add(label);
-        hbox.getStyleClass().add("labelOutput");
+        equationBHox.getChildren().add(clearButton);
 
-        //adds the hbox to the gridPane
-        gridPane.add(hbox, 0, 4, 4, 1);
+
+        HBox labelHBox = new HBox();
+        labelHBox.setAlignment(Pos.CENTER_RIGHT);
+        labelHBox.getChildren().add(inputLabel);
+        labelHBox.getStyleClass().add("labelOutput");
+
+        //adds the labelHBox to the gridPane
+        gridPane.add(labelHBox, 0, 5, 4, 1);
+        gridPane.add(equationBHox, 0, 4, 4, 1);
 
         //adds the css sheet link
         gridPane.getStylesheets().add("styles/styles.css");
 
         //returns the scene with a set height and width
-        return new Scene(gridPane, 192, 195);
+        return new Scene(gridPane, 192, 225);
     }
 
     //helper method to create event listeners for buttons in the above class
@@ -116,7 +131,29 @@ public class CalculatorUI extends Application
             public void handle(ActionEvent event)
             {
                 String value = button.getText();
-                Calculator.Calculate(value);
+
+                if (button.getText().equals("Enter"))
+                {
+                    if(inputLabel.getText().equals(""))
+                    {
+                    }
+                    else
+                    {
+                        inputLabel.setText(Calculator.calculate(inputLabel.getText()));
+                    }
+                }
+                else if(button.getText().equals("C"))
+                {
+                    inputLabel.setText("");
+                    //equationLabel.setText(" ");
+                }
+                else
+                {
+                    String currentLabel = inputLabel.getText();
+                    inputLabel.setText(currentLabel + value);
+                    //tried to get this to work... buuuuuut
+                    //equationLabel.setText(Calculator.activeTotal(currentLabel)+" ");
+                }
             }
         });
     }
