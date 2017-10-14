@@ -5,14 +5,22 @@ package calculator;
  * @version 1.0
  *
  * 10/12/2017
- * This class holds the logic and components to create the UI for a calculator.
+ * This file hold the main logic for running calculations from the UI.
  */
 
+
+/**
+ * This class hold the main logic for running calculations from the UI.
+ */
 public class Calculator
 {
     private static final int MIN_EQUATION_PARTS = 2;
-    private static String[] operators = {"+","-","/","*"};
 
+    /**
+     * This class handles the post parse string and uses a switch to manage the operator
+     * @param value is the incoming String value to be parsed and later solved.
+     * @return the calculated string to be displayed in the ui class.
+     */
     public static String calculate(String value)
     {
         //parses the in coming value and returns an array of parts
@@ -41,6 +49,7 @@ public class Calculator
         return result;
     }
 
+    //helper class to parse the string and hand back to calculate
     private static String[] parseEquation(String value)
     {
         String[] equationParts = new String[3];
@@ -84,6 +93,7 @@ public class Calculator
         return equationParts;
     }
 
+    //failed attempt at getting an active total label to work .. will try again at a later date
     public static String activeTotal(String currentInput)
     {
         String fromCalc = "";
