@@ -1,0 +1,44 @@
+GridPane{
+
+    -fx-font-family: "Century Gothic";
+
+    -fx-background-color: #9d9d9d;
+
+    -fx-hgap: 10px;
+
+    -fx-vgap: 10px;
+
+    -fx-padding: 20px;
+
+    -fx-focus-color: #0093ff;
+}
+
+.labelOutput{
+    -fx-background-color: #ffffff;
+    -fx-border-color: #707070;
+    -fx-border-style: solid;
+    -fx-pref-width: 90;
+    -fx-pref-height: 25px;
+    -fx-text-alignment: right;
+}
+
+
+Button{
+    -fx-min-width: 30px;
+    -fx-background-color: #2e2e2e;
+    -fx-text-fill: white;
+    /*-fx-accent: #61ff00;*/
+    /*-fx-focus-color: #61ff00;*/
+}
+
+Button:hover{
+    -fx-background-color: #3e3e3e;
+}
+
+Button:focused{
+    -fx-background-color: rgb(110, 146, 0);
+}
+
+.enterButton{
+    -fx-pref-width: 70px;
+}
