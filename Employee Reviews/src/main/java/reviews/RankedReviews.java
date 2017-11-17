@@ -1,5 +1,7 @@
 package reviews;
 
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,10 +13,30 @@ public class RankedReviews
 	
 	public static void main(String[] args)
 	{
+
 		//prompt the user for a strategy...
+		System.out.println("Employee Rankings Application");
+		System.out.println("*****************************");
+		System.out.println("Enter a strategy (improvement, total, weighted");
+
+
+		switch (console.nextLine())
+		{
+			case "improvement":
+
+				break;
+			case "total":
+
+				break;
+			case "weighted":
+
+				break;
+		}
+
 
 		//create a manager to access employee names and reviews
 		ReviewsManager manager = new ReviewsManager();
+
 
 		//create a ranked list of employee reviews
 		List<RankedReview> rankedList = new ArrayList<>();
@@ -65,4 +87,5 @@ public class RankedReviews
 			return other.score - this.score;
 		}
 	}
+
 }
