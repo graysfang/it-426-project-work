@@ -8,6 +8,7 @@ package registrations;
  * DESCRIPTION
  */
 
+import java.time.LocalDateTime;
 import java.util.Observable;
 
 /**
@@ -32,8 +33,14 @@ public class Student extends Observable
         //register for classes
         //assume a few steps occurred here
 
-        //inform obvserver of change
+        //inform observer of change
         this.setChanged();
-        this.notifyObservers();
+        //this.notifyObservers();
+        this.notifyObservers(new Object[]{classname, LocalDateTime.now()});
+    }
+
+    public String getName()
+    {
+        return name;
     }
 }

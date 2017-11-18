@@ -8,13 +8,21 @@ package registrations;
  * DESCRIPTION
  */
 
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  * DESCRIPTION
  *
  * @author Nicholas Perez
  * @version 1.0
  **/
-public class Registrar
+public class Registrar implements Observer
 {
 
+    @Override
+    public void update(Observable observable, Object args)
+    {
+        System.out.println("Hey, a student reg. for a class!");
+    }
 }

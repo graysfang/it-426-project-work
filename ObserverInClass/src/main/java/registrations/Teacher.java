@@ -23,6 +23,20 @@ public class Teacher implements Observer
     @Override
     public void update(Observable observable, Object arguments)
     {
+        if(observable instanceof Student)
+        {
+            Student student = (Student)observable;
+
+            //takes the incoming object and casts to object array
+            Object[] part = (Object[])arguments;
+
+            System.out.println(student.getName() + ": Signed up for "+ part[0].toString() + " at "+ part[1].toString());
+        }
+        if(observable instanceof Classroom)
+        {
+            System.out.println(arguments.toString());
+        }
+
 
     }
 }

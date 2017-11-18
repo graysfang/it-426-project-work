@@ -19,7 +19,6 @@ public class CarPart implements Serializable
         //do nothing - leave this method here...
     }
 
-
     public CarPart(String id, String manufacturer, double listPrice, String[] categories)
     {
         this.id = id;

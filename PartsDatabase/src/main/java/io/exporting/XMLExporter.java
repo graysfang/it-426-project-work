@@ -48,6 +48,9 @@ public class XMLExporter implements IExporter
         JAXBContext context = null;
         try
         {
+            PartsDatabase partsDatabase = new PartsDatabase();
+
+            File file = new File("parts.xml");
             context = JAXBContext.newInstance(PartsDatabase.class);
 
             Marshaller marshaller = context.createMarshaller();
@@ -55,8 +58,12 @@ public class XMLExporter implements IExporter
 
             for (CarPart part: data)
             {
-                marshaller.marshal(part, new File("parts.xml"));
+                partsDatabase.addPart(part);
+
             }
+
+            marshaller.marshal(partsDatabase, file);
+            return true;
         }
         catch (JAXBException e)
         {

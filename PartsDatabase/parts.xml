@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<carPart>
-    <categories>asdf</categories>
-    <categories>asdfg</categories>
-    <id>1234</id>
-    <listPrice>12.34</listPrice>
-    <manufacturer>asdf</manufacturer>
-</carPart>
+<partsDatabase>
+    <parts>
+        <categories>ivbb</categories>
+        <id>234234</id>
+        <listPrice>4.32</listPrice>
+        <manufacturer>wqewerwer</manufacturer>
+    </parts>
+    <parts>
+        <categories>asdad</categories>
+        <id>4533</id>
+        <listPrice>54.34</listPrice>
+        <manufacturer>asdf</manufacturer>
+    </parts>
+</partsDatabase>
