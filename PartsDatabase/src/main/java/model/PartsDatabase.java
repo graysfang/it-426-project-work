@@ -11,7 +11,6 @@ public class PartsDatabase
 {
     private Collection<CarPart> parts;
 
-
     public PartsDatabase()
     {
         parts = new ArrayList<CarPart>();
@@ -25,7 +24,7 @@ public class PartsDatabase
     @XmlElement
     public Collection<CarPart> getParts()
     {
-        return Collections.unmodifiableCollection(parts);
+        return parts;
     }
 
     public void clear()

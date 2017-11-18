@@ -26,6 +26,7 @@ import java.io.File;
  **/
 public class XMLImporter implements IImporter
 {
+
     /**
      * Imports all CarPart objects from a file.
      * @return a PartsDatabase object
@@ -33,24 +34,23 @@ public class XMLImporter implements IImporter
     @Override
     public PartsDatabase importParts()
     {
-        PartsDatabase partsDatabase = new PartsDatabase();
-        JAXBContext context = null;
+        PartsDatabase partsDatabase = null;
 
         try
         {
-            context = JAXBContext.newInstance(CarPart.class);
+            File file = new File("parts.xml");
 
+            JAXBContext context = JAXBContext.newInstance(PartsDatabase.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            CarPart myVariable = (CarPart)unmarshaller.unmarshal(new File("parts.xml"));
+            partsDatabase = (PartsDatabase) unmarshaller.unmarshal(file);
 
-            partsDatabase.addPart(myVariable);
+            return partsDatabase;
         }
         catch (JAXBException e)
         {
             e.printStackTrace();
         }
-
         return partsDatabase;
     }
 }

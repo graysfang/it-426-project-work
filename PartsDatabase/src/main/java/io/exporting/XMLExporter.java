@@ -59,7 +59,6 @@ public class XMLExporter implements IExporter
             for (CarPart part: data)
             {
                 partsDatabase.addPart(part);
-
             }
 
             marshaller.marshal(partsDatabase, file);
