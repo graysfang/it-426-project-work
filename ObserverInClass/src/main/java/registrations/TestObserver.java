@@ -23,7 +23,7 @@ public class TestObserver
         Student kyle = new Student("Kyle");
         Student tina = new Student("Tina");
 
-        //have a class watch or observe out students
+        //have a class watch or observe our students
         Registrar grcRegistrar = new Registrar();
         Teacher grcTeacher = new Teacher();
 

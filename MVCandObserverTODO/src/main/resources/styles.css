@@ -1,0 +1,6 @@
+.home-alignment{
+    -fx-alignment: center;
+}
+.header-text{
+    -fx-font: bold 2em 'sans-serif';
+}

@@ -12,4 +12,10 @@
         <listPrice>54.34</listPrice>
         <manufacturer>asdf</manufacturer>
     </parts>
+    <parts>
+        <categories>qweqwe</categories>
+        <id>12</id>
+        <listPrice>12.0</listPrice>
+        <manufacturer>fd</manufacturer>
+    </parts>
 </partsDatabase>
