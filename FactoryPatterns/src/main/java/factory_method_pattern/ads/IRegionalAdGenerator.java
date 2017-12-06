@@ -1,4 +1,4 @@
-package factory_method_pattern;
+package factory_method_pattern.ads;
 /*
  * Nicholas Perez
  * 11/28/2017
@@ -6,6 +6,8 @@ package factory_method_pattern;
  *
  * DESCRIPTION
  */
+
+import factory_method_pattern.ads.Advertisements;
 
 import java.util.List;
 

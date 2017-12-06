@@ -1,4 +1,4 @@
-package factory_method_pattern;
+package factory_method_pattern.ads;
 
 /*
  * Nicholas Perez
@@ -8,7 +8,6 @@ package factory_method_pattern;
  * DESCRIPTION
  */
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 

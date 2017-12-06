@@ -1,4 +1,4 @@
-package factory_method_pattern;
+package factory_method_pattern.ads;
 
 /*
  * Nicholas Perez
@@ -7,6 +7,9 @@ package factory_method_pattern;
  *
  * DESCRIPTION
  */
+
+import factory_method_pattern.ads.Advertisements;
+import factory_method_pattern.ads.IRegionalAdGenerator;
 
 import java.util.Arrays;
 import java.util.List;

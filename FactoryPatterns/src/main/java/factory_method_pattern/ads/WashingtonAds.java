@@ -1,9 +1,9 @@
-package factory_method_pattern;
+package factory_method_pattern.ads;
 
 /*
  * Nicholas Perez
  * 11/28/2017
- * HawaiiAds.java
+ * WashingtonAds.java
  *
  * DESCRIPTION
  */
@@ -14,12 +14,12 @@ package factory_method_pattern;
  * @author Nicholas Perez
  * @version 1.0
  **/
-public class HawaiiAds extends AdGen
+public class WashingtonAds extends AdGen
 {
 
     @Override
     protected IRegionalAdGenerator getRegionalGen()
     {
-        return new HawaiiAdGenerator();
+        return new WashintonAdGenerator();
     }
 }
